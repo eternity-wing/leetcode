@@ -1,12 +1,9 @@
 package main
 
-import (
-	"leetcode/trees/binarytrees"
-)
-
+import "leetcode/problems"
 
 func main() {
-
-	binarytrees.RunCodec()
-
+	problems.RunSlidingPuzzle()
 }
+
+

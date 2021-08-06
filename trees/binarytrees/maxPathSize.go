@@ -1,21 +1,24 @@
 package binarytrees
 
-func MaxPathSum(root *TreeNode) int {
-	if root == nil{
-		return -2000
-	}
-	leftMax := MaxPathSum(root.Left)
-	rightMax := MaxPathSum(root.Right)
+import "math"
 
-	max := root.Val
-	paths := []int{leftMax, leftMax + root.Val, leftMax + root.Val + rightMax, root.Val + rightMax, rightMax}
+func maxPathSum(root *TreeNode) int {
+	res := math.MinInt32
+	helper(root, &res)
+	return res
+}
 
-	for _, path := range paths{
-		if path > max{
-			max = path
-		}
-	}
+func helper(node *TreeNode, res *int) int {
+	if node == nil { return 0 }
+	left := helper(node.Left, res)
+	right := helper(node.Right, res)
+	currentNodeNotAsRoot := max(max(left, right) + node.Val, node.Val)
+	currentNodeAsRoot := max(currentNodeNotAsRoot, left + right + node.Val)
+	*res = max(*res, currentNodeAsRoot)
+	return currentNodeNotAsRoot
+}
 
-
-	return max
+func max(a, b int) int {
+	if a > b { return a }
+	return b
 }
