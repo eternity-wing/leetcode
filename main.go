@@ -1,8 +1,10 @@
 package main
 
-import "leetcode/problems"
+import (
+	"leetcode/mediuminterview/treesandgraphs"
+)
 
 func main() {
-	problems.RunCanFinish()
+	treesandgraphs.RunKthSmallest()
 }
 
