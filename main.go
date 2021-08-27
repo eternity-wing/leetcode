@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	treesandgraphs.RunKthSmallest()
+	treesandgraphs.RunNumIslands()
 }
 
