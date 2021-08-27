@@ -10,15 +10,15 @@ func numIslands(grid [][]byte) int {
 	numberOfIslands := 0
 
 
-	var doDfs = func(row int, column int) {}
-	doDfs = func(row int, column int) {
+	var drownTheIsland = func(row int, column int) {}
+	drownTheIsland = func(row int, column int) {
 		grid[row][column] = '0'
 		neighbors := getNeighbors(row, column, numberOfRows, numberOfColumns)
 		for _, neighbor := range neighbors {
 			neighborRow := neighbor[0]
 			neighborColumn := neighbor[1]
 			if grid[neighborRow][neighborColumn] == '1' {
-				doDfs(neighborRow, neighborColumn)
+				drownTheIsland(neighborRow, neighborColumn)
 			}
 		}
 	}
@@ -30,7 +30,7 @@ func numIslands(grid [][]byte) int {
 				continue
 			}
 			numberOfIslands++
-			doDfs(row, column)
+			drownTheIsland(row, column)
 		}
 	}
 	return numberOfIslands
