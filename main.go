@@ -1,10 +1,10 @@
 package main
 
 import (
-	"leetcode/mediuminterview/treesandgraphs"
+	"leetcode/problems"
 )
 
 func main() {
-	treesandgraphs.RunNumIslands()
+	problems.RunMaxSubArray()
 }
 
