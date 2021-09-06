@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	problems.RunMaxProfit()
+	problems.RunIsSubsequence()
 }
 
