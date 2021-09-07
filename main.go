@@ -1,10 +1,10 @@
 package main
 
 import (
-	"leetcode/problems"
+	"leetcode/mediuminterview/dynamicprogramming"
 )
 
 func main() {
-	problems.RunIsSubsequence()
+	dynamicprogramming.RunCanJump()
 }
 
