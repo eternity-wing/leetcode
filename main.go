@@ -1,10 +1,10 @@
 package main
 
 import (
-	"leetcode/mediuminterview/dynamicprogramming"
+	"leetcode/mediuminterview/arrayandstrings"
 )
 
 func main() {
-	dynamicprogramming.RunCoinChange()
+	arrayandstrings.RunGroupAnagrams()
 }
 
