@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	dynamicprogramming.RunCanJump()
+	dynamicprogramming.RunCoinChange()
 }
 
