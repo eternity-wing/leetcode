@@ -1,10 +1,10 @@
 package main
 
 import (
-	"leetcode/mediuminterview/arrayandstrings"
+	"leetcode/problems"
 )
 
 func main() {
-	arrayandstrings.RunGroupAnagrams()
+	problems.RunMinCostClimbingStairs()
 }
 
