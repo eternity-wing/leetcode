@@ -1,10 +1,8 @@
 package main
 
-import (
-	"leetcode/problems"
-)
+import "leetcode/problems"
 
 func main() {
-	problems.RunMaxProfit()
+	problems.RunNumDecodings()
 }
 
