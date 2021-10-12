@@ -3,27 +3,33 @@ package problems
 import "fmt"
 
 func trap(height []int) int {
-	filledSpaces := 0
-	maxHeightIndex := 0
+	startPointer := 0
+	endPointer := 1
+	n := len(height)
 	totalRain := 0
 
-	for index, h := range height{
-		if height[maxHeightIndex] <= h{
-
-			length := index - maxHeightIndex
-			if length > 1{
-				totalRain += (length - 1) * height[maxHeightIndex]
-			}
-			filledSpaces = 0
-			maxHeightIndex = index
-		}else {
-			filledSpaces += h
+	filledInRange := 0
+	for endPointer < n {
+		startHeight := height[startPointer]
+		endHeight := height[endPointer]
+		if endHeight >= startHeight{
+			totalRangeCapacity := (1 + endPointer - startPointer) * startHeight
+			startPointer = endPointer
+			endPointer = endPointer + 1
+			totalRain += totalRangeCapacity - filledInRange
+			filledInRange = 0
+			continue
+		}else{
+			filledInRange += height[endPointer]
+			endPointer++
 		}
+
+
 	}
 
 	return totalRain
 }
 
 func RunTrap()  {
-	fmt.Printf("%d", trap([]int{4,2,0,3,2,5}))
+	fmt.Printf("%d", trap([]int{0,1,0,2,1,0,1,3,2,1,2,1}))
 }
