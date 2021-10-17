@@ -12,7 +12,7 @@ func trap(height []int) int {
 	for endPointer < n {
 		startHeight := height[startPointer]
 		endHeight := height[endPointer]
-		if endHeight >= startHeight{
+		if endHeight >= startHeight || endPointer == n - 1{
 			totalRangeCapacity := (1 + endPointer - startPointer) * startHeight
 			startPointer = endPointer
 			endPointer = endPointer + 1
@@ -31,5 +31,5 @@ func trap(height []int) int {
 }
 
 func RunTrap()  {
-	fmt.Printf("%d", trap([]int{0,1,0,2,1,0,1,3,2,1,2,1}))
+	fmt.Printf("%d", trap([]int{0,1,0,2,1,0,1,3,2}))
 }
