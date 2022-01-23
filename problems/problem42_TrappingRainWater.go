@@ -1,35 +1,35 @@
 package problems
 
-import "fmt"
+import (
+	"fmt"
+	"leetcode/utils"
+)
 
 func trap(height []int) int {
-	startPointer := 0
-	endPointer := 1
 	n := len(height)
+	right := make([]int, n+1)
+	for i := n - 1; i >= 0; i-- {
+		right[i] = maxInt(right[i+1], height[i])
+	}
+
+	left := make([]int, n)
+	left[0] = height[0]
+	for i := 1; i < n; i++ {
+		left[i] = maxInt(left[i-1], height[i])
+	}
+
+
 	totalRain := 0
 
-	filledInRange := 0
-	for endPointer < n {
-		startHeight := height[startPointer]
-		endHeight := height[endPointer]
-		if endHeight >= startHeight || endPointer == n - 1{
-			totalRangeCapacity := (1 + endPointer - startPointer) * startHeight
-			startPointer = endPointer
-			endPointer = endPointer + 1
-			totalRain += totalRangeCapacity - filledInRange
-			filledInRange = 0
-			continue
-		}else{
-			filledInRange += height[endPointer]
-			endPointer++
-		}
 
-
+	for i := 1; i < n-1; i++ {
+		totalRain += utils.Min(left[i], right[i]) - height[i]
 	}
 
 	return totalRain
 }
 
-func RunTrap()  {
-	fmt.Printf("%d", trap([]int{0,1,0,2,1,0,1,3,2}))
+func RunTrap() {
+	//fmt.Printf("%d", trap([]int{0, 1, 0, 2, 1, 0, 1, 3, 2}))
+	fmt.Printf("%d", trap([]int{4,2,0,3,2,5}))
 }

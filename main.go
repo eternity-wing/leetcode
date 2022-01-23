@@ -1,8 +1,9 @@
 package main
 
-import "leetcode/problems"
+import (
+	"leetcode/arrays"
+)
 
 func main() {
-	problems.RunSwapPairs()
+	arrays.RunMinWindow()
 }
-
